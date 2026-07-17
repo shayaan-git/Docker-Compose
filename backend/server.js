@@ -4,6 +4,8 @@ import cors from "cors";
 const app = express();
 
 app.use(morgan("dev"));
+app.use(express.json());
+app.use(express.static("public"));
 
 app.get("/", (req, res) => {
    res.send(`This is Docker Compose Concept Class`);
@@ -28,6 +30,10 @@ app.get("/api/users", (req, res) => {
 
 app.get("/api/health", (req, res) => {
    res.status(200).json({ status: "OK" });
+});
+
+app.get("*name", (req, res) => {
+   res.sendFile("public/index.html", { root: __dirname });
 });
 
 app.listen(3000, () => {
