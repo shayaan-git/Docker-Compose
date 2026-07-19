@@ -82,13 +82,16 @@ command: → kya run karna hai, wo decide karta hai
 volumes: → filesystem kaisa dikhega container ke andar, wo decide karta hai, to yahan pe jaisa humne kara uper dekho host ke /Backend folder ke ander jo bhi hai usko sync kar rahe, container ke /app folder mein
 
 ```
-
+- Use this following command to build and run
 > > docker compose up
+
+- And Only if you changed something in the codebase, do run the following command:
+
+   > > docker compose down -v
+   > > docker compose up --build
 
 - Add this -v it is important so old anonymous volume (agar koi stale volume bana ho) clear ho jaye
 - And then cmd run it (if) node_modules mein hue changes reflect karne ke liye
-   > > docker compose down -v
-   > > docker compose up --build
 
 ---
 
